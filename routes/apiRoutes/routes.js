@@ -28,7 +28,7 @@ router.get("/notes", (req, res) => {
    
     console.log(newNote);
     notes.push(newNote);
-    
+
     res.json(newNote);
     fs.writeFileSync("./db/db.json", JSON.stringify(notes, null, 2), function (
       err
@@ -36,3 +36,21 @@ router.get("/notes", (req, res) => {
       if (err) throw err;
     });
   });
+
+ 
+router.delete("/notes/:id", (req, res) => {
+ 
+  let deleteNote = notes.findIndex((item) => item.id === req.params.id);
+ 
+  notes.splice(deleteNote, 1);
+
+
+  fs.writeFileSync("./db/db.json", JSON.stringify(notes, null, 2), function (
+    err
+  ) {
+    if (err) throw err;
+  });
+  res.json({ deletion: "Note Deleted!" });
+});
+
+module.exports = router;
