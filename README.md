@@ -2,7 +2,7 @@
 
   
   ## Description:
-
+This note-taker allows the user to enter to-do/tasks and save. saved notes can be deleted by clicking on trash can icon next to saved task Notes.
 
   # Table of Contents
 
@@ -20,6 +20,7 @@
 
   * run ```npm install``` in terminal to install the dependencies. 
   * run ```node server.js``` in terminal
+
   
 
   ## Deployed
